@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tenorio\\Laravel\\Tdd\\Docs\\LaravelTestingDocsProvider"
+                "Tenorio\\Laravel\\Tdd\\Docs\\LaravelTddDocsProvider"
             ]
         }
     }   

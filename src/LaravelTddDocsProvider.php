@@ -24,6 +24,6 @@ class LaravelTddDocsProvider extends ServiceProvider
     public function register()
     {
         include __DIR__.'/routes.php';
-        $this->app->make('Tenorio\Laravel\Testing\Docs\LaravelTestingDocsController');
+        $this->app->make('Tenorio\Laravel\Testing\Docs\LaravelTddDocsController');
     }
 }

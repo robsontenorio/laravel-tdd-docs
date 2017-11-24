@@ -14,13 +14,13 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Tenorio\\Laravel\\Testing\\Docs\\": "src/"
+            "Tenorio\\Laravel\\Tdd\\Docs\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Tenorio\\Laravel\\Testing\\Docs\\LaravelTestingDocsProvider"
+                "Tenorio\\Laravel\\Tdd\\Docs\\LaravelTestingDocsProvider"
             ]
         }
     }   

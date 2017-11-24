@@ -1,10 +1,10 @@
 <?php
 
-namespace Tenorio\Laravel\Testing\Docs;
+namespace Tenorio\Laravel\Tdd\Docs;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelTestingDocsProvider extends ServiceProvider
+class LaravelTddDocsProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

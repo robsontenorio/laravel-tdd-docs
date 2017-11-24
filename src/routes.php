@@ -1,3 +1,3 @@
 <?php 
 
-Route::get('testing-docs', 'Tenorio\Laravel\Testing\Docs\LaravelTestingDocsController@index');
+Route::get('testing-docs', 'Tenorio\Laravel\Tdd\Docs\LaravelTddDocsController@index');

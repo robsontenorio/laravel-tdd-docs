@@ -54,7 +54,7 @@ That is, make your tests as usual and include only the comments you need to gene
 ### Require
 
 ```
-composer require robsontenorio/laravel-tdd-docs:dev-master
+composer require robsontenorio/laravel-tdd-docs
 ```
 
 ### Modify

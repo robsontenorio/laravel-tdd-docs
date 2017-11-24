@@ -166,15 +166,15 @@ class ThreadTest extends TestCase
 
 - Each class `method`  is a `scenario`.
 
-## Comments
+## DocBlock
 
-- The `class` must have a full doc block comment 
+- The `class` must have a full DocBlock comment 
     - it must have a `@feature` anotation
     - it must have a `@tag` anotation
+    - it must have a description body
 
-- Each `method` from `class` must have a `test_` prefix 
-- The `inline comments` inside `methods` must be in this format /** */
-
+- Each class `method` must have a `test_` prefix 
+    - The `inline comments` inside `methods` must be in this format `/** comment in here */`
 
  
 # Inspiration

@@ -5,7 +5,7 @@
 
 # About
 
-TDD is a great way to develpe a software. The development workflow is clean and fluid. And, if you use the BDD approach to do it you have a good code readability, what give us a opportunity to documentate it very easely.
+TDD is a great way to develpe a software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
 
 
 # Background
@@ -29,15 +29,15 @@ Feature: Listing command
 
 ````
 
-To use BEHAT with Laravel you need a series of settings, have some extra files, and follow a restricted pattern. The way test classes are generated is somewhat confusing, as your app growns.
+To use BEHAT with Laravel you need a series of settings, have some extra files, and follow a restricted pattern. The way test classes are generated is somewhat confusing, as your app grows.
 
-You can also get a detailed report of your tests when using plugins to export results to html, **what is great!**
+You can also get a detailed report of your tests when using [plugins](https://github.com/dutchiexl/BehatHtmlFormatterPlugin) to export results to html, **what is great!**
 
 
 
-# And if...
+# :bulb: Well... And if ... 
 
-And if we could to have same result with zero config, by just commenting your testing files?
+And if we could to have same result (structured tests and reports) with zero config, by just commenting your testing files?
 
 # Install
 

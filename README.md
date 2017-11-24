@@ -126,7 +126,7 @@ class ThreadTest extends TestCase
         $user2 = factory('App\User')->create();     
         
         // another user
-        // NOTE: this kind comment is not parsed
+        // NOTE: this kind of comment is not parsed
         $thread = factory('App\Thread')->create(['user_id' => $user->id]);
 
         /** When request is processed */
@@ -138,7 +138,7 @@ class ThreadTest extends TestCase
         /** And response status code is 403 */
         
         // Lets simulate a error in here, we got 200 but, 403 was expected
-        // NOTE: this kind comment is not parsed
+        // NOTE: this kind of comment is not parsed
         $response->assertStatus(403);
     }
 }

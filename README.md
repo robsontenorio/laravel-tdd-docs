@@ -1,14 +1,18 @@
 # WIP
 
-- Very first try, so there is no elegant solution implemeted.
+- Very first trying, so there is no elegant solution implemeted.
 - Improving english translations.
 
-# About
+# Package
 
-TDD is a great way to develpe a software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
+Make your tests as usual and include only the comments you need to generate the reports.
+
+Develop your software using TDD with clean workflow and get a bonus with zero effort: living docs.
 
 
 # Background
+
+TDD is a great way to develpe a software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
 
 As we know [BEHAT](http://behat.org/en/latest/guides.html) uses BDD approach to write its tests (Given, When, Then). This is a great way to understand what happens to the software.
 

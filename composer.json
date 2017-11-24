@@ -3,7 +3,7 @@
     "description": "TDD living docs for Laravel. Generate docs from comments at your phpunit tests.",
     "license": "MIT",
     "keywords": ["laravel","phpunit", "testing", "tdd", "generate docs"],    
-    "homepage": "https://github.com/robsontenorio/laravel-testing-docs",    
+    "homepage": "https://github.com/robsontenorio/laravel-tdd-docs",    
     "type": "project",
     "authors": [
         {

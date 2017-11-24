@@ -12,7 +12,7 @@
         <div class="column">
             <div class="feature">
                 <h1 class="title">{{ $feature->title }}</h1>
-                <p class="class"><strong>{{ '@'.$feature->tag }}</strong> {{ $feature->class }}</p>
+                <p class="class"><strong>{{ '#'.$feature->tag }}</strong> {{ $feature->class }}</p>
                 <h2>{!! $feature->description !!} </h2>
             </div>
         </div>

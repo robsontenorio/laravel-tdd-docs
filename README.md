@@ -7,7 +7,7 @@
 
 Make your tests as usual and include only the comments you need to generate the reports.
 
-Develop your software using TDD with clean workflow and get a bonus with zero effort: living docs.
+Develop your software using TDD with clean workflow and get a bonus with zero effort: **living docs**.
 
 
 # Background
@@ -41,7 +41,7 @@ You can also get a detailed report of your tests when using [plugins](https://gi
 
 # Well, and if ... :bulb: :bulb: :bulb:
 
-And if we could to have same result (structured tests and reports) with zero config, only using Laravel Testing Suite, simpling commenting your testing files?
+And if we could to have same result (structured tests and reports) with **zero config**, only using Laravel Testing Suite, simpling commenting your testing files?
 
 Well, we develop our software using TDD with clean workflow and get a bonus with almost zero effort: **living docs**.
 
@@ -179,7 +179,7 @@ class ThreadTest extends TestCase
  
 # Inspiration
 - [Behat](http://behat.org/en/latest/guides.html)
-- [Behate html formatter plugin](https://github.com/dutchiexl/BehatHtmlFormatterPlugin)
+- [Behat html formatter plugin](https://github.com/dutchiexl/BehatHtmlFormatterPlugin)
 
 
 # TODO

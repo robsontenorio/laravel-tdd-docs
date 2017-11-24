@@ -12,6 +12,7 @@
         }
     ],
     "require": {},
+    "minimum-stability": "dev",    
     "autoload": {
         "psr-4": {
             "Tenorio\\Laravel\\Testing\\Docs\\": "src/"

@@ -35,9 +35,14 @@ You can also get a detailed report of your tests when using [plugins](https://gi
 
 
 
-# :bulb: Well... And if ... 
+# Well, and if ... :bulb: :bulb: :bulb:
 
-And if we could to have same result (structured tests and reports) with zero config, by just commenting your testing files?
+And if we could to have same result (structured tests and reports) with zero config, only using Laravel Testing Suite, simpling commenting your testing files?
+
+Well, we develop our software using TDD with clean workflow and get a bonus with almost zero effort: **living docs**.
+
+That is, make your tests as usual and include only the comments you need to generate the reports.
+
 
 # Install
 
@@ -66,7 +71,7 @@ Make sure you have permissions to write on `storage/app` folder.
 ### Run
 
 - Run `phpunit` on project root
-- Browser to `/testing-docs` route to see docs.
+- Browse to `/testing-docs` route to see docs.
 
 # Example
 
@@ -104,7 +109,7 @@ class ThreadTest extends TestCase
         $response = $this->actingAs($user)->post('/api/threads', $thread->toArray());
 
         /** Then i sould see new thread created */
-        $response->assertJsonFragment($thread);
+        $response->assertJsonFragment($thread->toArray());
 
     }
 
@@ -114,16 +119,20 @@ class ThreadTest extends TestCase
         $user1 = factory('App\User')->create();
 
         /** Given there is thread created by another user */
-        $user2 = factory('App\User')->create();        
+        $user2 = factory('App\User')->create();     
+        
+        // another user. NOTE: this kind comment is not parsed
         $thread = factory('App\Thread')->create(['user_id' => $user->id]);
 
         /** When request is processed */
         $response = $this->actingAs($user)->delete("/api/threads/{$thread->id}");
 
         /** Then i sould a error message */
-        $response->assertJsonFragment(['error' => 'You cant delete a thread from another user.']);
+        $response->assertJsonFragment(['error' => 'You can not delete a thread from another user.']);
 
         /** And response status code is 403 */
+        
+        // Lets simulate a error in here, we got 200 but, 403 was expected
         $response->assertStatus(403);
     }
 }
@@ -137,13 +146,13 @@ class ThreadTest extends TestCase
 
 1) It read all testing files from `tests/Feature` folder
 
-2) It searchs for doc block  on `class` section (feature description) 
+2) It searchs for a full `doc block`  on `class` section (feature description) 
 
-3) It search for `inline comments` (steps) on each `method` (scenarios titles).
+3) It search for `inline comments` (steps) on each `method` (scenarios).
 
-4) It compares `phpunit` output generated on `storage/app/testing-docs/report.html` to highlight the report.
+4) It compares `phpunit` output generated on `storage/app/testing-docs/report.html` with your `testing files` to highlight the report with failed tests.
 
-5) You can see full docs browsing to `/testing-docs` route.
+5) You can see full report/docs at browsing to `/testing-docs` route.
 
 # Assumptions
 
@@ -151,7 +160,7 @@ class ThreadTest extends TestCase
 
 - Each file on `tests/Feature` folder is a `feature`
 
-- Each `method` from that `class` is a `scenario`.
+- Each class `method`  is a `scenario`.
 
 ## Comments
 
@@ -159,19 +168,18 @@ class ThreadTest extends TestCase
     - it must have a `@feature` anotation
     - it must have a `@tag` anotation
 
-- Each `method` from `class` must have a `test_` prefix
- - the `inline comment` from `method` comment must be in this format `/** */`
+- Each `method` from `class` must have a `test_` prefix 
+- The `inline comments` inside `methods` must be in this format /** */
+
+
  
 # Inspiration
 - [Behat](http://behat.org/en/latest/guides.html)
 - [Behate html formatter plugin](https://github.com/dutchiexl/BehatHtmlFormatterPlugin)
 
-# Contributing
-
-Please
 
 # TODO
 
-
+- Improve regex, to avoid exceptions when docblocks does not follow pattern proposed.
 - Filter by tag
 - Graphs

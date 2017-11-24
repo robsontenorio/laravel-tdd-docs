@@ -1,18 +1,18 @@
 # WIP
 
-- Very first trying, so there is no elegant solution implemeted.
+- Very first trying, so there is no elegant solution implemeted yet. You can help :)
 - Improving english translations.
 
 # Package
 
-Make your tests as usual and include only the comments you need to generate the reports.
+TDD living docs for Laravel. Generate docs from comments at your phpunit tests. Make your tests as usual and include only the comments you need to generate the reports.
 
 Develop your software using TDD with clean workflow and get a bonus with zero effort: **living docs**.
 
 
 # Background
 
-TDD is a great way to develpe a software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
+TDD is a great way to develope software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
 
 As we know [BEHAT](http://behat.org/en/latest/guides.html) uses BDD approach to write its tests (Given, When, Then). This is a great way to understand what happens to the software.
 
@@ -54,7 +54,7 @@ That is, make your tests as usual and include only the comments you need to gene
 ### Require
 
 ```
-composer require "robsontenorio/laravel-testing-docs"
+composer require "robsontenorio/laravel-tdd-docs"
 ```
 
 ### Modify

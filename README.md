@@ -1,9 +1,9 @@
 # WIP
 
-- Very first trying, so there is no elegant solution implemeted yet. You can help :)
+- This is a very first trying, so code can be improved. You can help :)
 - Improving english translations.
 
-# Package
+# Laravel TDD Docs
 
 TDD living docs for Laravel. Generate docs from comments at your phpunit tests. Make your tests as usual and include only the comments you need to generate the reports.
 
@@ -12,7 +12,7 @@ Develop your software using TDD with clean workflow and get a bonus with zero ef
 
 # Background
 
-TDD is a great way to develope software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
+TDD is a great way to develop software. The development workflow is clean and fluid. And, if you use the BDD approach  (Given, When, Then) to do it you have a good code readability, what give us a opportunity to documentate it very easely.
 
 As we know [BEHAT](http://behat.org/en/latest/guides.html) uses BDD approach to write its tests (Given, When, Then). This is a great way to understand what happens to the software.
 
@@ -35,13 +35,13 @@ Feature: Listing command
 
 To use BEHAT with Laravel you need a series of settings, have some extra files, and follow a restricted pattern. The way test classes are generated is somewhat confusing, as your app grows.
 
-You can also get a detailed report of your tests when using [plugins](https://github.com/dutchiexl/BehatHtmlFormatterPlugin) to export results to html, **what is great!**
+With BEHAT you can also get a detailed report of your tests when using [plugins](https://github.com/dutchiexl/BehatHtmlFormatterPlugin) to export results to html, **what is great!**
 
 
 
 # Well, and if ... :bulb: :bulb: :bulb:
 
-And if we could to have same result (structured tests and reports) with **zero config**, only using Laravel Testing Suite, simpling commenting your testing files?
+And if we could to have same result (structured tests and reports) with **zero config**, only using Laravel Testing Suite, simply commenting your test files?
 
 Well, we develop our software using TDD with clean workflow and get a bonus with almost zero effort: **living docs**.
 
@@ -127,17 +127,17 @@ class ThreadTest extends TestCase
         
         // another user
         // NOTE: this kind of comment is not parsed
-        $thread = factory('App\Thread')->create(['user_id' => $user->id]);
+        $thread = factory('App\Thread')->create(['user_id' => $user2->id]);
 
         /** When request is processed */
-        $response = $this->actingAs($user)->delete("/api/threads/{$thread->id}");
+        $response = $this->actingAs($user1)->delete("/api/threads/{$thread->id}");
 
         /** Then i sould a error message */
         $response->assertJsonFragment(['error' => 'You can not delete a thread from another user.']);
 
         /** And response status code is 403 */
         
-        // Lets simulate a error in here, we got 200 but, 403 was expected
+        // Lets simulate a error in here, we got 200 but 403 was expected
         // NOTE: this kind of comment is not parsed
         $response->assertStatus(403);
     }
@@ -150,13 +150,13 @@ class ThreadTest extends TestCase
 
 # How it works
 
-1) It read all testing files from `tests/Feature` folder
+1) It read all test files from `tests/Feature` folder
 
 2) It searchs for a full `doc block`  on `class` section (feature description) 
 
 3) It search for `inline comments` (steps) on each `method` (scenarios).
 
-4) It compares `phpunit` output generated on `storage/app/testing-docs/report.html` with your `testing files` to highlight the report with failed tests.
+4) It compares `phpunit` output generated on `storage/app/testing-docs/report.html` with your `test files` to highlight the report with failed tests.
 
 5) You can see full report/docs at browsing to `/testing-docs` route.
 

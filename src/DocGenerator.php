@@ -1,6 +1,6 @@
 <?php
 
-namespace Tenorio\Laravel\Testing\Docs;
+namespace Tenorio\Laravel\Tdd\Docs;
 
 use \Illuminate\Support\Facades\File;
 

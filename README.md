@@ -3,7 +3,7 @@
 - This is a very first trying, so code can be improved. You can help :)
 - Improving english translations.
 
-# Laravel TDD Docs
+# Laravel TDD docs
 
 TDD living docs for Laravel. Generate docs from comments at your phpunit tests. Make your tests as usual and include only the comments you need to generate the reports.
 

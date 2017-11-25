@@ -19,12 +19,23 @@ class LaravelTddDocsController extends Controller
             $report = Storage::get('testing-docs/report.xml');
             $files = File::allFiles(base_path('tests/Feature'));
 
-            foreach ($files as $file) {                
+            foreach ($files as $file) {                                
+                if (!str_contains($file->getBaseName(), 'Test'))
+                {
+                    continue;
+                }
+
                 if ($file->getMTime() > Storage::lastModified('testing-docs/report.xml')) {
                     $docs = [];
-                    throw new \Exception('One of your testing files was <strong>modified</strong> recently. Run full <strong>phpunit</strong> suite again.');                    
+                    throw new \Exception('One of your test files was <strong>modified</strong> recently. Run full <strong>phpunit</strong> suite again.');                    
                 }
+
                 $docs->add((new DocGenerator($file))->build());
+            }
+
+            if (count($docs) === 0)
+            {
+                throw new \Exception('No test files detected on <strong>tests/Feature</strong>. You should write some tests :)');
             }
             
             $xml = simplexml_load_string($report);

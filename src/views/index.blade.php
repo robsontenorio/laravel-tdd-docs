@@ -1,10 +1,9 @@
 @extends('testingdocs::layout') 
 
-
 @section('content') 
-    
     @if ($warning)
-        <div class="notification is-warning">{!! $warning !!}</div>
+        <p class="warning-help">For more details check <a href="https://github.com/robsontenorio/laravel-tdd-docs">https://github.com/robsontenorio/laravel-tdd-docs</a>.</p>
+        <div class="notification is-warning">{!! $warning !!}</div>        
     @endif
 
     @foreach($docs as $feature)           
@@ -101,6 +100,11 @@
 
     .is-danger{
         background-color: #e49797;
+    }
+
+    .warning-help{
+        margin-bottom: 10px;
+        font-size: 10pt;
     }
 
 

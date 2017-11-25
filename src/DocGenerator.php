@@ -98,22 +98,36 @@ class DocGenerator
         $text = $this->removeDocNotation($text);
         
         preg_match('/(@feature)(\s)(.*)/', $text, $matches);
+
+        if (count($matches) == 0)
+        {
+            throw new \Exception("You must include <strong>@feature</strong> anotation on your test class ({$this->class}).");
+        }
+
         $title = $matches[3];
-        $title_row = $matches[0];        
+        $title_row = $matches[0];
+
 
         preg_match('/(@tag)(\s)(.*)/', $text, $matches);
-        $tag = $matches[3];
-        $tag_row = $matches[0];        
+        
+        $tag = null;
+        $tag_row = null;
 
-        $description = str_replace($title_row, '', $text);
+        if (count($matches))
+        {
+            $tag = $matches[3];
+            $tag_row = $matches[0];                                
+        }
+        
+
+        $description = str_replace($title_row, '', $text);        
         $description = str_replace($tag_row, '', $description);
-        $description = preg_replace("/\s\n/", "", $description);     
-
+        $description = preg_replace("/(\s\s\n)/", "", $description);             
         // $description = $this->highlightFirstWords($description);
         
         $feature['id'] = str_replace('\\','', $this->getClassName());
-        $feature['title'] = $title;
-        $feature['tag'] = $tag;
+        $feature['title'] = $title;        
+        $feature['tag'] = $tag;            
         $feature['class'] = $this->getClassName();                
         $feature['description'] = nl2br($description);
         $feature['scenarios'] = $this->scenarios();        

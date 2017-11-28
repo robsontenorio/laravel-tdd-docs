@@ -18,7 +18,10 @@
         <div class="column">
             @foreach($feature->scenarios as $scenario)
 
-                <?php $class = (isset($scenario->error)) ? 'is-danger' : 'is-success' ?>
+                <?php 
+                      $class = (isset($scenario->error)) ? 'is-danger' : 'is-success'; 
+                      $class = (isset($scenario->warning)) ? 'is-warning' : $class ;
+                ?>
             
                 <div class="scenario {{ $class }}" onclick="toggle('{{$feature->id}}-{{$scenario->method}}')"><strong>{{ $scenario->title }}</strong></div>                
                     
@@ -100,6 +103,10 @@
 
     .is-danger{
         background-color: #e49797;
+    }
+
+    .is-warning{
+        background-color: #e0e03f;
     }
 
     .warning-help{

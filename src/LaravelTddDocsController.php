@@ -42,11 +42,12 @@ class LaravelTddDocsController extends Controller
             $errors = new Collection();
 
             foreach ($xml->test as $element) {
-                if (isset($element['exceptionMessage'])) {
-                    $class = (string) $element['className'];
+                $class = (string) $element['className'];
+                $method = (string) $element['methodName'];
+
+                if (isset($element['exceptionMessage'])) {                    
                     $exception = (string) $element['exceptionMessage'];
-                    $line = (int) $element['exceptionLine'];
-                    $method = (string) $element['methodName'];
+                    $line = (int) $element['exceptionLine'];                    
 
                     $error = (object)['class' => $class, 'method' => $method, 'exception' => $exception, 'line' => $line];
 
@@ -64,6 +65,12 @@ class LaravelTddDocsController extends Controller
                             break;
                         }
                     }
+                }
+
+                if ($element['status'] == 2)
+                {                    
+                    $scenario = $docs->where('class', $class)->first()->scenarios->where('method', $method)->first();
+                    $scenario->warning = true;
                 }
             }
         } catch (FileNotFoundException $e) {

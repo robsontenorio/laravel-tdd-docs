@@ -51,11 +51,14 @@ class DocGenerator
                 $x = new \ReflectionMethod($this->class, $method_name);
                 
                 $title = $this->parseScenario($method_name);
-                $steps = $this->parseSetps($x->getStartLine(), $x->getEndLine());                
-
-                if (count($steps) > 0) {
-                    $scenarios[] = (object) ['title' => $title, 'method' => $method_name, 'steps' => $steps];
+                $steps = $this->parseSetps($x->getStartLine(), $x->getEndLine());  
+                
+                if (count($steps) == 0)
+                {
+                    $title = ' [NO STEPS] '.$title;
                 }
+                
+                $scenarios[] = (object) ['title' => $title, 'method' => $method_name, 'steps' => $steps];                
             }
         }
 
@@ -71,8 +74,7 @@ class DocGenerator
 
     public function parseSetps($start_line, $end_line)
     {
-        $tokens = token_get_all(file_get_contents($this->file));
-
+        $tokens = token_get_all(file_get_contents($this->file));        
         $steps = [];
         foreach ($tokens as $token) {
             if ($token[0] == T_DOC_COMMENT && ($token[2] > $start_line && $token[2] < $end_line)) {
